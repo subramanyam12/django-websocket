@@ -31,7 +31,6 @@ pycparser==2.21
 pyOpenSSL==23.3.0
 pypiwin32==223
 python-dateutil==2.8.2
-pywin32
 PyYAML==6.0.1
 requests==2.31.0
 semantic-version==2.8.5
