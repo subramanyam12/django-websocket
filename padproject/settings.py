@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y@m=j+^-l1(^2$#c!!6k5!32-capie)wyvl&v)50r6e=qe*6e6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,24 +79,40 @@ ASGI_APPLICATION = "padproject.asgi.application"
 #     },
 # }
 
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [(REDIS_URL)],
+#         },
+#     },
+# }
+
+
+
+REDIS_URL = 'redis.envzqv.clustercfg.eun1.cache.amazonaws.com:6379'
+
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
-        },
-    },
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'LOCATION': 'redis://redis.envzqv.clustercfg.eun1.cache.amazonaws.com:6379/1',  
+        # 'OPTIONS': {
+        #     'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        # }
+    }
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
